@@ -1,0 +1,27 @@
+{
+  "benchmark_name": "CircuitMind Eval",
+  "version": "0.2.0",
+  "task_count": 10,
+  "difficulty_distribution": {
+    "easy": 2,
+    "medium": 5,
+    "hard": 3
+  },
+  "task_sequence": [
+    "series resistors",
+    "parallel resistors",
+    "user-supplied multi-source circuit",
+    "nodal analysis",
+    "Thevenin theorem",
+    "superposition theorem",
+    "Norton theorem",
+    "mesh analysis",
+    "maximum power transfer",
+    "GATE-level unbalanced bridge"
+  ],
+  "image_format": "PNG",
+  "image_style": "Clean professional circuit schematics",
+  "provenance": "Original benchmark prompts and most schematics authored for CircuitMind Eval. Solutions are analytically derived and should receive independent EE review before being described as expert-verified.",
+  "units": "SI units. CM004 uses k\u03a9 and mA. All other tasks use \u03a9, V, A, W.",
+  "model_input_policy": "Send each question and its corresponding image only. Never expose ground_truth.json to the evaluated model."
+}

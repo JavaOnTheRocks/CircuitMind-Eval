@@ -1,0 +1,137 @@
+[
+  {
+    "test_id": "CM001",
+    "equivalent_resistance_ohm": 12.0,
+    "loop_current_a": 1.0,
+    "voltage_r1_v": 4.0,
+    "voltage_r2_v": 8.0,
+    "kvl_check": "4 V + 8 V = 12 V.",
+    "derivation": "R_eq=4+8=12 \u03a9; I=12/12=1 A; resistor drops are 4 V and 8 V."
+  },
+  {
+    "test_id": "CM002",
+    "equivalent_resistance_ohm": 2.0,
+    "total_current_a": 6.0,
+    "current_r1_a": 2.0,
+    "current_r2_a": 4.0,
+    "branch_voltage_v": 12.0,
+    "kcl_check": "2 A + 4 A = 6 A.",
+    "derivation": "R_eq=(6\u00d73)/(6+3)=2 \u03a9; I_total=12/2=6 A; branch currents are 12/6=2 A and 12/3=4 A."
+  },
+  {
+    "test_id": "CM003",
+    "node_a_voltage_v": -14.0,
+    "node_b_voltage_v": -114.0,
+    "current_r3_a_top_to_bottom": -28.5,
+    "power_r3_w": 3249.0,
+    "derivation": "Bottom conductor is 0 V. V1 polarity is + at bottom, so its top node is \u221280 V. V3 polarity is + at top, so the node below R2 is +40 V. V2 is + on the left and \u2212 on the right, hence Va\u2212Vb=100 V. Supernode KCL: (Va+80)/2 + (Va\u221240)/12 + Vb/4=0. Solving gives Va=\u221214 V and Vb=\u2212114 V. Taking R3 current downward as positive, I_R3=Vb/4=\u221228.5 A, meaning actual current is 28.5 A upward. Power absorbed by R3 is V\u00b2/R=114\u00b2/4=3249 W.",
+    "tolerances": {
+      "voltage_abs_v": 0.02,
+      "current_abs_a": 0.02,
+      "power_abs_w": 0.5
+    },
+    "checks": [
+      "respect all three source polarities as drawn",
+      "V2 constraint Va\u2212Vb=100 V",
+      "supernode KCL",
+      "P_R3=I\u00b2R=V\u00b2/R and is positive absorbed power"
+    ]
+  },
+  {
+    "test_id": "CM004",
+    "node_voltage_v": 5.0,
+    "source_current_ma": 2.5,
+    "current_r2_ma": 1.6666667,
+    "current_r3_ma": 0.8333333,
+    "kcl_equation": "(10\u2212Va)/2 = Va/3 + Va/6, using k\u03a9 and mA.",
+    "derivation": "3k\u03a9||6k\u03a9=2k\u03a9; total=4k\u03a9; source current=10/4=2.5mA; Va=5V; branch currents=5/3=1.6667mA and 5/6=0.8333mA.",
+    "tolerances": {
+      "voltage_abs_v": 0.02,
+      "current_abs_ma": 0.02
+    }
+  },
+  {
+    "test_id": "CM005",
+    "vth_v": 18.0,
+    "rth_ohm": 3.0,
+    "load_current_a": 2.0,
+    "load_voltage_v": 12.0,
+    "source_deactivation_explanation": "Remove RL to measure open-circuit voltage: Vth=18 V. For Rth, short the ideal independent voltage source; the resistance seen at a\u2013b is 3 \u03a9.",
+    "derivation": "Vth=18V; Rth=3\u03a9; reconnect 6\u03a9: IL=18/(3+6)=2A; VL=2\u00d76=12V.",
+    "tolerances": {
+      "voltage_abs_v": 0.02,
+      "resistance_abs_ohm": 0.01,
+      "current_abs_a": 0.01
+    }
+  },
+  {
+    "test_id": "CM006",
+    "va_due_to_v1_v": 6.0,
+    "va_due_to_v2_v": 2.0,
+    "total_va_v": 8.0,
+    "load_current_a": 1.3333333,
+    "superposition_check": "6 V + 2 V = 8 V; IL=8/6=1.3333 A.",
+    "derivation": "With V1 alone, short V2: (Va\u221212)/2 + Va/3 + Va/6 = 0, so Va1=6 V. With V2 alone, short V1: Va/2 + (Va\u22126)/3 + Va/6 = 0, so Va2=2 V. By superposition Va=6+2=8 V, and the 6 \u03a9 load current is 8/6=4/3 A.",
+    "tolerances": {
+      "voltage_abs_v": 0.02,
+      "current_abs_a": 0.01
+    }
+  },
+  {
+    "test_id": "CM007",
+    "norton_current_a": 4.0,
+    "norton_resistance_ohm": 6.0,
+    "load_current_a": 2.6666667,
+    "load_voltage_v": 8.0,
+    "current_division_check": "IN=24/6=4A; IL=4\u00d76/(6+3)=8/3A; VL=(8/3)\u00d73=8V.",
+    "derivation": "Short-circuit current IN=24/6=4A. Deactivate the ideal voltage source (short it): RN=6\u03a9. With RL=3\u03a9, current division gives IL=4\u00d76/(6+3)=2.6667A.",
+    "tolerances": {
+      "voltage_abs_v": 0.02,
+      "resistance_abs_ohm": 0.01,
+      "current_abs_a": 0.02
+    }
+  },
+  {
+    "test_id": "CM008",
+    "node_voltage_v": 7.2,
+    "left_resistor_current_a": 2.4,
+    "right_resistor_current_a": 0.6,
+    "shared_branch_current_a": 1.8,
+    "mesh_equations": "With clockwise mesh currents I1 and I2: left loop 2I1+4(I1\u2212I2)=12; right loop 2I2+4(I2\u2212I1)=\u22126, with the shared branch reference directions handled consistently. Equivalent node equation: (Va\u221212)/2+(Va\u22126)/2+Va/4=0.",
+    "kcl_check": "2.4 A enters Va; 0.6 A goes to the +6 V node and 1.8 A flows down the shared branch.",
+    "derivation": "KCL gives (Va\u221212)/2+(Va\u22126)/2+Va/4=0, hence Va=7.2V. Left branch current=(12\u22127.2)/2=2.4A toward Va. Right branch current=(7.2\u22126)/2=0.6A from Va to +6V node. Shared current=7.2/4=1.8A downward.",
+    "tolerances": {
+      "voltage_abs_v": 0.02,
+      "current_abs_a": 0.02
+    }
+  },
+  {
+    "test_id": "CM009",
+    "optimal_load_ohm": 6.0,
+    "maximum_power_w": 24.0,
+    "load_voltage_v": 12.0,
+    "load_current_a": 2.0,
+    "maximum_power_condition": "For a resistive Thevenin source, maximum power transfer occurs when RL=Rth. Here RL=6\u03a9; Pmax=Vth\u00b2/(4Rth)=24\u00b2/(4\u00d76)=24W.",
+    "derivation": "Vth=24V and Rth=6\u03a9. Set RL=Rth=6\u03a9. Total current=24/(6+6)=2A; VL=12V; PL=I\u00b2RL=24W.",
+    "tolerances": {
+      "resistance_abs_ohm": 0.02,
+      "power_abs_w": 0.05,
+      "voltage_abs_v": 0.02,
+      "current_abs_a": 0.01
+    }
+  },
+  {
+    "test_id": "CM010",
+    "left_midpoint_voltage_v": 11.764705882352942,
+    "right_midpoint_voltage_v": 8.235294117647058,
+    "bridge_current_a_left_to_right": 1.1764705882352942,
+    "source_current_a": 7.0588235294117645,
+    "kcl_left_check": "(20\u2212VL)/2 = VL/4 + (VL\u2212VR)/3 = 70/17 A.",
+    "kcl_right_check": "(20\u2212VR)/4 + (VL\u2212VR)/3 = VR/2 + 20/17? Correct KCL: (20\u2212VR)/4 + (VL\u2212VR)/3 = VR/2; both sides equal 50/17 + 20/17 = 70/17 A.",
+    "derivation": "Let bottom rail be 0V and top rail 20V. KCL: (VL\u221220)/2 + VL/4 + (VL\u2212VR)/3=0; (VR\u221220)/4 + VR/2 + (VR\u2212VL)/3=0. Solve VL=200/17=11.7647V and VR=140/17=8.2353V. Bridge current left-to-right=(VL\u2212VR)/3=20/17=1.1765A. Source current=(20\u2212VL)/2+(20\u2212VR)/4=70/17+50/17=120/17=7.0588A.",
+    "tolerances": {
+      "voltage_abs_v": 0.02,
+      "current_abs_a": 0.02
+    }
+  }
+]

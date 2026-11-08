@@ -1,0 +1,155 @@
+[
+  {
+    "test_id": "CM001",
+    "image": "images/circuit_001.png",
+    "category": "series_resistors",
+    "difficulty": "easy",
+    "question": "For the ideal 12 V DC series circuit shown, calculate the equivalent resistance, loop current, and voltage drop across each resistor. Verify your result using Kirchhoff's Voltage Law (KVL).",
+    "required_output": [
+      "equivalent_resistance_ohm",
+      "loop_current_a",
+      "voltage_r1_v",
+      "voltage_r2_v",
+      "kvl_check"
+    ],
+    "image_spec": "12 V source in one unbranched loop with 4 \u03a9 and 8 \u03a9 series resistors."
+  },
+  {
+    "test_id": "CM002",
+    "image": "images/circuit_002.png",
+    "category": "parallel_resistors",
+    "difficulty": "easy",
+    "question": "For the ideal 12 V parallel circuit shown, calculate equivalent resistance, total source current, and the current through each branch. Verify the result using Kirchhoff's Current Law (KCL).",
+    "required_output": [
+      "equivalent_resistance_ohm",
+      "total_current_a",
+      "current_r1_a",
+      "current_r2_a",
+      "branch_voltage_v",
+      "kcl_check"
+    ],
+    "image_spec": "12 V ideal source across two parallel branches containing 6 \u03a9 and 3 \u03a9 resistors."
+  },
+  {
+    "test_id": "CM003",
+    "image": "images/circuit_003.png",
+    "category": "multi_source_circuit_power",
+    "difficulty": "medium",
+    "question": "Using the exact source polarities shown in the provided figure, find the power in watts absorbed (dissipated) by R3. Show a supernode or equivalent circuit-analysis derivation. Clearly state the assumed reference node and current direction. Numerical values: V1=80 V, V2=100 V, V3=40 V, R1=2 \u03a9, R2=12 \u03a9, R3=4 \u03a9.",
+    "required_output": [
+      "node_a_voltage_v",
+      "node_b_voltage_v",
+      "current_r3_a_top_to_bottom",
+      "power_r3_w",
+      "derivation"
+    ],
+    "image_spec": "Use the participant-provided circuit image unchanged. Three ideal voltage sources with polarities as drawn; R1 top-left, R2 center branch, R3 right branch."
+  },
+  {
+    "test_id": "CM004",
+    "image": "images/circuit_004_nodal.png",
+    "category": "nodal_analysis",
+    "difficulty": "medium",
+    "question": "Take the bottom conductor as ground. Apply nodal analysis to find Va, source current, and currents through the 3 k\u03a9 and 6 k\u03a9 shunt resistors. Show the KCL equation.",
+    "required_output": [
+      "node_voltage_v",
+      "source_current_ma",
+      "current_r2_ma",
+      "current_r3_ma",
+      "kcl_equation"
+    ],
+    "image_spec": "10 V source through 2 k\u03a9 to node Va, with 3 k\u03a9 and 6 k\u03a9 from Va to common reference."
+  },
+  {
+    "test_id": "CM005",
+    "image": "images/circuit_005.png",
+    "category": "thevenin_theorem",
+    "difficulty": "medium",
+    "question": "Remove the 6 \u03a9 load and determine the Thevenin equivalent seen at terminals a\u2013b. Then reconnect the load and calculate its current and voltage. Explain how the independent ideal voltage source is deactivated when finding Rth.",
+    "required_output": [
+      "vth_v",
+      "rth_ohm",
+      "load_current_a",
+      "load_voltage_v",
+      "source_deactivation_explanation"
+    ],
+    "image_spec": "18 V ideal source in series with 3 \u03a9 source resistance and 6 \u03a9 load across output terminals."
+  },
+  {
+    "test_id": "CM006",
+    "image": "images/circuit_006.png",
+    "category": "superposition_theorem",
+    "difficulty": "hard",
+    "question": "Use the superposition theorem to determine the voltage Va and the current through the 6 \u03a9 load. Calculate the contribution to Va from V1 acting alone and from V2 acting alone. When deactivating an ideal voltage source, replace it with a short circuit. Verify that the contributions sum to the full-circuit result.",
+    "required_output": [
+      "va_due_to_v1_v",
+      "va_due_to_v2_v",
+      "total_va_v",
+      "load_current_a",
+      "superposition_check"
+    ],
+    "image_spec": "Two ideal voltage sources (12 V through 2 \u03a9 and 6 V through 3 \u03a9) feed node Va; a 6 \u03a9 load connects Va to the common return."
+  },
+  {
+    "test_id": "CM007",
+    "image": "images/circuit_007.png",
+    "category": "norton_theorem",
+    "difficulty": "medium",
+    "question": "Find the Norton equivalent of the source network seen at terminals a\u2013b with the load removed. Then reconnect the 3 \u03a9 load and calculate load current and voltage. Show how IN and RN are obtained and verify the result using current division.",
+    "required_output": [
+      "norton_current_a",
+      "norton_resistance_ohm",
+      "load_current_a",
+      "load_voltage_v",
+      "current_division_check"
+    ],
+    "image_spec": "24 V ideal source in series with 6 \u03a9 source resistance feeding terminals a\u2013b and a 3 \u03a9 load."
+  },
+  {
+    "test_id": "CM008",
+    "image": "images/circuit_004.png",
+    "category": "mesh_analysis",
+    "difficulty": "hard",
+    "question": "Analyze the two-loop network using mesh analysis. Determine the central node voltage, currents through the left and right 2 \u03a9 resistors, and current through the shared 4 \u03a9 branch. Clearly state mesh-current directions and verify KCL at the central node.",
+    "required_output": [
+      "node_voltage_v",
+      "left_resistor_current_a",
+      "right_resistor_current_a",
+      "shared_branch_current_a",
+      "mesh_equations",
+      "kcl_check"
+    ],
+    "image_spec": "Two source-fed 2 \u03a9 branches (+12 V and +6 V) meeting at a central node; shared 4 \u03a9 branch from the node to common reference."
+  },
+  {
+    "test_id": "CM009",
+    "image": "images/circuit_009.png",
+    "category": "maximum_power_transfer",
+    "difficulty": "medium",
+    "question": "For the Thevenin source and variable load shown, determine the value of RL for maximum power transfer, the maximum load power, load voltage, and load current at the maximum-power operating point. State the maximum-power-transfer condition.",
+    "required_output": [
+      "optimal_load_ohm",
+      "maximum_power_w",
+      "load_voltage_v",
+      "load_current_a",
+      "maximum_power_condition"
+    ],
+    "image_spec": "24 V ideal source with 6 \u03a9 series resistance and variable load RL at terminals a\u2013b."
+  },
+  {
+    "test_id": "CM010",
+    "image": "images/circuit_010.png",
+    "category": "gate_level_bridge_network",
+    "difficulty": "hard",
+    "question": "GATE-level unbalanced bridge problem. The 20 V ideal source is connected across the upper and lower rails. Using nodal analysis (or a valid network reduction), calculate the midpoint voltages VL and VR, the current through the 3 \u03a9 bridge resistor (magnitude and direction), and total source current. Do not assume the bridge is balanced. Verify KCL at both midpoint nodes.",
+    "required_output": [
+      "left_midpoint_voltage_v",
+      "right_midpoint_voltage_v",
+      "bridge_current_a_left_to_right",
+      "source_current_a",
+      "kcl_left_check",
+      "kcl_right_check"
+    ],
+    "image_spec": "20 V source across an unbalanced bridge: left upper/lower resistors 2 \u03a9 and 4 \u03a9; right upper/lower resistors 4 \u03a9 and 2 \u03a9; 3 \u03a9 bridge between midpoints."
+  }
+]

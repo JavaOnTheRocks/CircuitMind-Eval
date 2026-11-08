@@ -1,0 +1,6 @@
+matplotlib>=3.8
+openai
+google-genai
+python-dotenv
+pillow
+pydantic
