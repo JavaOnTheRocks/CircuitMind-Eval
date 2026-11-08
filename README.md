@@ -1033,9 +1033,9 @@ The PDF should include:
 
 A video walkthrough demonstrates the benchmark and its execution.
 
-**Video:** [ADD PUBLIC YOUTUBE / LOOM / GOOGLE DRIVE LINK]
+**Video:** [https://docs.google.com/document/d/1f0lC3WyE5-KjWMJBv6R68B9NwwHEOGglJfVt2Xp1fK8/edit?usp=sharing]
 
-The walkthrough should cover:
+The walkthrough video covers:
 
 1. The electrical circuit reasoning problem.
 2. The gap between plausible model explanations and technically correct solutions.
@@ -1048,7 +1048,6 @@ The walkthrough should cover:
 9. Running the benchmark using one command.
 10. Generated reports and reproducibility artifacts.
 
-The video should be accessible to anyone with the link.
 
 ---
 
@@ -1108,6 +1107,6 @@ The goal is not simply to rank models. It is to understand where their electrica
 | Source code | [https://github.com/JavaOnTheRocks/CircuitMind-Eval.git] |
 | Hugging Face dataset | [https://huggingface.co/datasets/rakesh-bishnoi29/circuitmind-eval/] |
 | Evaluation report PDF | [https://docs.google.com/document/d/1_nzB-VXYp69DveILrbWeGMPv9e8wQXxoyy1eoXTUYaU/edit?usp=sharing] |
-| Video walkthrough | [ADD VIDEO URL] |
+| Video walkthrough | [https://docs.google.com/document/d/1f0lC3WyE5-KjWMJBv6R68B9NwwHEOGglJfVt2Xp1fK8/edit?usp=sharing] |
 
 
