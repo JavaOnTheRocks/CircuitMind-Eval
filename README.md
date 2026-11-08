@@ -72,7 +72,7 @@ The architecture is designed to support additional questions without hardcoding 
 
 ### Evaluation workflow
 
-![Evaluation workflow](<mermaid-diagram (1).png>)
+<img src="mermaid-diagram (1).png" alt="Evaluation workflow" style="max-width: 50%;">
 
 Both models are evaluated using the same dataset and evaluation criteria.
 
@@ -86,18 +86,20 @@ The benchmark currently covers the following problem categories:
 
 for this **micro1 Eval Hackathon** the Dataset we constructed Just included the **Basic Network Theroy circuit Problem**.
 
-                        | Circuit analysis topic | What it evaluates |
-                        |---|---|
-                        | Series circuits | Equivalent resistance, loop current and voltage drops |
-                        | Parallel circuits | Equivalent resistance, branch currents and KCL |
-                        | Multi-source circuits | Source polarity, node voltages and power |
-                        | Nodal analysis | Node-voltage equations and current relationships |
-                        | Thevenin's theorem | Open-circuit voltage and equivalent resistance |
-                        | Superposition theorem | Individual source contributions and combined response |
-                        | Norton's theorem | Norton current, equivalent resistance and load current |
-                        | Mesh analysis | Loop equations and shared-branch currents |
-                        | Maximum power transfer | Optimal load and maximum power |
-                        | Bridge circuits | Unbalanced bridge analysis and node relationships |
+
+| Circuit analysis topic | What it evaluates |
+|---|---|
+| Series circuits | Equivalent resistance, loop current and voltage drops |
+| Parallel circuits | Equivalent resistance, branch currents and KCL |
+| Multi-source circuits | Source polarity, node voltages and power |
+| Nodal analysis | Node-voltage equations and current relationships |
+| Thevenin's theorem | Open-circuit voltage and equivalent resistance |
+| Superposition theorem | Individual source contributions and combined response |
+| Norton's theorem | Norton current, equivalent resistance and load current |
+| Mesh analysis | Loop equations and shared-branch currents |
+| Maximum power transfer | Optimal load and maximum power |
+| Bridge circuits | Unbalanced bridge analysis and node relationships |
+
 
 ### Electrical principles used
 
@@ -150,24 +152,27 @@ Each example contains:
 
 ### Current dataset structure
 
-                                        ```text
-                                        Dataset/
-                                        └── CircuitMind-Eval/
-                                            └── dataset/
-                                                ├── images/
-                                                ├── questions.json
-                                                ├── ground_truth.json
-                                                ├── metadata.json
-                                                └── data.jsonl
-                                        ```
+```text
+Dataset/
+└── CircuitMind-Eval/
+    └── dataset/
+        ├── images/
+        ├── questions.json
+        ├── ground_truth.json
+        ├── metadata.json
+        └── data.jsonl
 
-                        | File | Purpose |
-                        |---|---|
-                        | `images/` | Circuit diagram images |
-                        | `questions.json` | Questions and required output fields |
-                        | `ground_truth.json` | Reference solutions |
-                        | `metadata.json` | Dataset information and evaluation metadata |
-                        | `data.jsonl` | Line-oriented dataset representation |
+```
+
+
+| File | Purpose |
+|---|---|
+| `images/` | Circuit diagram images |
+| `questions.json` | Questions and required output fields |
+| `ground_truth.json` | Reference solutions |
+| `metadata.json` | Dataset information and evaluation metadata |
+| `data.jsonl` | Line-oriented dataset representation |
+
 
 ### How the reference dataset is prepared
 
@@ -546,13 +551,15 @@ The following results are from the initial 10-question benchmark run.
 
 ### 8.1 Primary metric: Numerical Accuracy
 
-                        | Metric | OpenAI | NVIDIA |
-                        |---|---:|---:|
-                        | Correct numerical fields | 14 | 28 |
-                        | Scored numerical fields | 43 | 39 |
-                        | Accuracy among scored fields | 32.56% | 71.79% |
-                        | Expected numerical fields in dataset | 41 | 41 |
-                        | Dataset-wide numerical accuracy | 34.15% | 68.29% |
+
+| Metric | OpenAI | NVIDIA |
+|---|---:|---:|
+| Correct numerical fields | 14 | 28 |
+| Scored numerical fields | 43 | 39 |
+| Accuracy among scored fields | 32.56% | 71.79% |
+| Expected numerical fields in dataset | 41 | 41 |
+| Dataset-wide numerical accuracy | 34.15% | 68.29% |
+
 
 The primary metric is numerical accuracy among scored fields.
 
@@ -562,35 +569,26 @@ The dataset-wide value is also reported to expose missing or invalid evaluations
 
 ### 8.2 Global Accuracy and AI-Judge Results
 
-                        | Metric | OpenAI | NVIDIA |
-                        |---|---:|---:|
-                        | Dataset questions | 10 | 10 |
-                        | Questions with final score 5/5 | 1 | 3 |
-                        | Global accuracy | 10% | 30% |
-                        | Average judge score, evaluated questions | 4.10/5 | 4.33/5 |
-                        | End-to-end average judge score | 4.10/5 | 3.90/5 |
+
 
 The NVIDIA evaluated-only average is calculated over nine successfully evaluated questions, whereas the end-to-end average includes the missing evaluation as zero.
 
 ### 8.3 Response and Evaluation Coverage
 
-                        | Metric | OpenAI | NVIDIA |
-                        |---|---:|---:|
-                        | Available responses | 10/10 | 10/10 |
-                        | Valid JSON responses | 10/10 | 9/10 |
-                        | Deterministically scored | 10/10 | 9/10 |
-                        | AI-judge evaluations | 10/10 | 9/10 |
-                        | Response coverage | 100% | 100% |
-                        | Valid JSON coverage | 100% | 90% |
-                        | Scoring coverage | 100% | 90% |
-                        | AI evaluation coverage | 100% | 90% |
+| Metric | OpenAI | NVIDIA |
+|---|---:|---:|
+| Dataset questions | 10 | 10 |
+| Questions with final score 5/5 | 1 | 3 |
+| Global accuracy | 10% | 30% |
+| Average judge score, evaluated questions | 4.10/5 | 4.33/5 |
+| End-to-end average judge score | 4.10/5 | 3.90/5 |
 
 ### 8.4 Answer Completeness
 
-                        | Model | Present fields | Expected fields | Completeness |
-                        |---|---:|---:|---:|
-                        | OpenAI | 53 | 53 | 100% |
-                        | NVIDIA | 48 | 53 | 90.57% |
+| Model | Present fields | Expected fields | Completeness |
+|---|---:|---:|---:|
+| OpenAI | 53 | 53 | 100% |
+| NVIDIA | 48 | 53 | 90.57% |
 
 ### 8.5 Semantic Evaluation
 
@@ -598,12 +596,12 @@ The AI judge evaluates four dimensions independently.
 
 The following figures represent the percentage of successfully evaluated questions receiving a fully correct dimension score, as reported by the current evaluation output.
 
-                        | Dimension | OpenAI | NVIDIA |
-                        |---|---:|---:|
-                        | Circuit understanding | 100% | 88.89% |
-                        | Method correctness | 100% | 77.78% |
-                        | Reasoning correctness | 90% | 66.67% |
-                        | Physical consistency | 100% | 100% |
+| Dimension | OpenAI | NVIDIA |
+|---|---:|---:|
+| Circuit understanding | 100% | 88.89% |
+| Method correctness | 100% | 77.78% |
+| Reasoning correctness | 90% | 66.67% |
+| Physical consistency | 100% | 100% |
 
 These are dimension-level full-correct percentages, not average scores out of five.
 
@@ -1056,17 +1054,15 @@ The video should be accessible to anyone with the link.
 
 ## 14. Prior Work and Existing Benchmarks
 
-CircuitMind-Eval is a domain-specific evaluation project focused on image-based electrical circuit reasoning.
+CircuitMind-Eval is a domain-specific evaluation project focused on  electrical and electronics circuit reasoning.
 
-Its dataset and evaluation approach should be distinguished from general-purpose visual question answering and general mathematical reasoning benchmarks.
+Its dataset and evaluation approach should be distinguished from general-purpose circuit question answering and general mathematical reasoning benchmarks.
 
-The current experiment uses a project-specific collection of electrical network theory problems and reference answers.
+The current experiment uses a project-specific collection of electrical  network theory problems and reference answers.
 
 **Dataset provenance and prior-work disclosure:**
 
-[ADD THE ORIGINAL SOURCES, TEXTBOOKS, PUBLIC DATASETS, CIRCUIT-DIAGRAM SOURCES, AND ANY PRE-EXISTING BENCHMARKS USED TO PREPARE THE DATASET.]
-
-If any examples are adapted from existing material, their original sources and licenses should be documented. If examples are newly authored, state that explicitly. Do not describe synthetic, adapted, or curated examples as independently collected real-world data.
+[I prepared the Dataset form my prior Enginneering Experience and GATE papers]
 
 ---
 
